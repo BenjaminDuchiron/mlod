@@ -14,7 +14,7 @@ float prix_billet_avion(int age, float prix_plein_tarif) {
 int main(void){
     int age =11;
     float prix_plein_tarif = 100.0;
-    printf ("prix_billet_avion= %f ",prix_billet_avion(age,plein));
+    printf ("prix_billet_avion= %f ",prix_billet_avion(age,prix_plein_tarif));
 
     return 0;
 } 

@@ -48,11 +48,34 @@ int scanLineAsInt() {
 	return buf;
 }
 
+struct winner {
+	int Year;
+	char Name;
+	char Description;
+};
+
+struct winner tableau[50] readWinner(){
+	for (int i =0 ; i<= (50);i++){
+		Year tableau[i] =scanLineAsInt();
+		Name tableau[i] =scanLine();
+		Description tableau[i] =scanLine();
+
+}
 
 int main(void)
-{
-	scanline
+{	
 	int nbGagnants = scanLineAsInt();
+	for (int i =0 ; i<= (50);i++){
+		int winnerYear =scanLineAsInt();
+		printf("%i\n",winnerYear);
+
+		char *winnerName =scanLine();
+		printf("%s\n",winnerName);
+
+		char *winnerDescription =scanLine();
+		printf("%s\n",winnerDescription);
+	}
+	
 	printf("nbGagnants = %i\n",nbGagnants);
 
 	return EXIT_SUCCESS;
