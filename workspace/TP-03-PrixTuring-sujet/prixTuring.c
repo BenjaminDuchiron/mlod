@@ -54,13 +54,20 @@ struct winner {
 	char Description;
 };
 
-struct winner tableau[50] readWinner(){
-	for (int i =0 ; i<= (50);i++){
-		Year tableau[i] =scanLineAsInt();
-		Name tableau[i] =scanLine();
-		Description tableau[i] =scanLine();
+typedef struct winner winner;
+
+winner** readWinner(){
+	winner **output = malloc(sizeof(winner* ) * 50);
+	for (int i = 0; i < 50; i++) {
+		output[i] = malloc(sizeof(winner));
+		output[i]->Year = scanLineAsInt();
+		output[i]->Name = scanLine();
+		output[i]->Description = scanLine();
+	}
+	return output;
 
 }
+	
 
 int main(void)
 {	
