@@ -80,11 +80,24 @@ void printWinner(){
 	}
 }
 	
+void infosAnnee (int annee){
+	winner ** output = readWinner();
+	for(int i= 0; i<50; i++){
+		if (output[i]->Year == annee){
+			printf("%i\n",output[i]->Year );
+			printf("%s\n",output[i]->Name );
+			printf("%s\n",output[i]->Description );
+		}
+
+}
+}
 
 int main(void)
 {	
-	//int nbGagnants = scanLineAsInt();
-	printWinner();
+	// int nbGagnants = scanLineAsInt();
+	// printf("%i\n",nbGagnants);
+	// printWinner();
+	infosAnnee(2003);
 	// for (int i =0 ; i<= (50);i++){
 	// 	int winnerYear =scanLineAsInt();
 	// 	printf("%i\n",winnerYear);
