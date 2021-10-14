@@ -50,8 +50,8 @@ int scanLineAsInt() {
 
 struct winner {
 	int Year;
-	char Name;
-	char Description;
+	char *Name;
+	char *Description;
 };
 
 typedef struct winner winner;
@@ -67,23 +67,36 @@ winner** readWinner(){
 	return output;
 
 }
+
+void printWinner(){
+	winner ** output = readWinner();
+	//FILE*f;
+	//f =fopen(out,"w");
+	for(int i= 0; i<50; i++){
+		//int putc(output[i],FILE*f);
+		printf("%i\n",output[i]->Year );
+		printf("%s\n",output[i]->Name );
+		printf("%s\n",output[i]->Description );
+	}
+}
 	
 
 int main(void)
 {	
-	int nbGagnants = scanLineAsInt();
-	for (int i =0 ; i<= (50);i++){
-		int winnerYear =scanLineAsInt();
-		printf("%i\n",winnerYear);
+	//int nbGagnants = scanLineAsInt();
+	printWinner();
+	// for (int i =0 ; i<= (50);i++){
+	// 	int winnerYear =scanLineAsInt();
+	// 	printf("%i\n",winnerYear);
 
-		char *winnerName =scanLine();
-		printf("%s\n",winnerName);
+	// 	char *winnerName =scanLine();
+	// 	printf("%s\n",winnerName);
 
-		char *winnerDescription =scanLine();
-		printf("%s\n",winnerDescription);
-	}
+	// 	char *winnerDescription =scanLine();
+	// 	printf("%s\n",winnerDescription);
+	// }
 	
-	printf("nbGagnants = %i\n",nbGagnants);
+	//printf("nbGagnants = %i\n",nbGagnants);
 
 	return EXIT_SUCCESS;
 }
