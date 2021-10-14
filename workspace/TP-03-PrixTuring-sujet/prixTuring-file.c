@@ -49,24 +49,32 @@ int scanLineAsInt() {
 }
 
 struct winner {
-	int Year;
+	char *Year;
 	char *Name;
 	char *Description;
 };
 
 typedef struct winner winner;
 
+char * readLine(FILE * f){
+	char buffer[151];
+	fgets(buffer,151,f);
+	char* truc = malloc(strlen(buffer));
+	return (truc);
+	
+}
+
 winner** readWinner(){
 	char turingWinners[]="turingWinners.txt";
 	FILE* f;
 	winner **output = malloc(sizeof(winner* ) * 50);
 	f = fopen (turingWinners,"r");
-	for (int i = 0; i < 50; i=i+3) {
+	for (int i = 0; i < 50; i++) {
 		output[i] = malloc(sizeof(winner));
 		
-		 int * fgets(int (output[i]->Year),  151,f);
-		 char * fgets(char (output[i+1]->Name),  151,f);
-		 char * fgets(char( output[i+2]->Description), 151,f );
+		output[i]->Year =readLine(f);
+		output[i]->Name =readLine(f);
+		output[i]->Description =readLine(f);
 	}
 	return output;
 
@@ -88,7 +96,7 @@ void infosAnnee (int annee){
 	winner ** output = readWinner();
 	for(int i= 0; i<50; i++){
 		if (output[i]->Year == annee){
-			printf("%i\n",output[i]->Year );
+			printf("%s\n",output[i]->Year );
 			printf("%s\n",output[i]->Name );
 			printf("%s\n",output[i]->Description );
 		}
