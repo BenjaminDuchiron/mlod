@@ -56,12 +56,14 @@ struct winner {
 
 typedef struct winner winner;
 
-char * readLine(FILE * f){
-	char buffer[151];
-	fgets(buffer,151,f);
+	char * readLine(FILE * f){
+	char buffer[255];
+	fgets(buffer,255,f);
 	char* truc = malloc(strlen(buffer));
+	truc =buffer;
 	return (truc);
 	
+
 }
 
 winner** readWinner(){
@@ -109,6 +111,7 @@ int main(void)
 	int nbGagnants = scanLineAsInt();
 	printf("%i\n",nbGagnants);
 	printWinner();
+
 	//infosAnnee(2003);
 	// for (int i =0 ; i<= (50);i++){
 	// 	int winnerYear =scanLineAsInt();

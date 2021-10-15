@@ -56,48 +56,48 @@ struct winner {
 
 typedef struct winner winner;
 
-winner** readWinner(){
-	winner **output = malloc(sizeof(winner* ) * 50);
-	for (int i = 0; i < 50; i++) {
-		output[i] = malloc(sizeof(winner));
-		output[i]->Year = scanLineAsInt();
-		output[i]->Name = scanLine();
-		output[i]->Description = scanLine();
+winner* readWinner(int nbGagnants){
+	winner *output = malloc(sizeof(winner) * nbGagnants);
+	for (int i = 0; i < nbGagnants; i++) {
+		output[i].Year = scanLineAsInt();
+		output[i].Name = scanLine();
+		output[i].Description = scanLine();
 	}
 	return output;
 
 }
 
-void printWinner(){
-	winner ** output = readWinner();
+void printWinner(int nbGagnants,winner*output){
+	//winner ** output = readWinner(nbGagnants);
 	//FILE*f;
 	//f =fopen(out,"w");
-	for(int i= 0; i<50; i++){
+	for(int i= 0; i<nbGagnants; i++){
 		//int putc(output[i],FILE*f);
-		printf("%i\n",output[i]->Year );
-		printf("%s\n",output[i]->Name );
-		printf("%s\n",output[i]->Description );
+		printf("%i\n",output[i].Year );
+		printf("%s\n",output[i].Name );
+		printf("%s\n",output[i].Description );
 	}
 }
 	
-void infosAnnee (int annee){
-	winner ** output = readWinner();
+void infosAnnee (int annee,int nbGagnants){
+	winner * output = readWinner(nbGagnants);
 	for(int i= 0; i<50; i++){
-		if (output[i]->Year == annee){
-			printf("%i\n",output[i]->Year );
-			printf("%s\n",output[i]->Name );
-			printf("%s\n",output[i]->Description );
+		if (output[i].Year == annee){
+			printf("%i\n",output[i].Year );
+			printf("%s\n",output[i].Name );
+			printf("%s\n",output[i].Description );
 		}
 
 }
 }
 
 int main(void)
-{	
-	// int nbGagnants = scanLineAsInt();
-	// printf("%i\n",nbGagnants);
-	// printWinner();
-	infosAnnee(2003);
+{
+	 int nbGagnants = scanLineAsInt();
+	 printf("%i\n",nbGagnants);
+	 winner* output =readWinner(nbGagnants);
+	 printWinner(nbGagnants,output);
+	//infosAnnee(2003,nbGagnants);
 	// for (int i =0 ; i<= (50);i++){
 	// 	int winnerYear =scanLineAsInt();
 	// 	printf("%i\n",winnerYear);
@@ -110,6 +110,6 @@ int main(void)
 	// }
 	
 	//printf("nbGagnants = %i\n",nbGagnants);
-
+	
 	return EXIT_SUCCESS;
 }
