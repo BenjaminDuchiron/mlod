@@ -57,46 +57,60 @@ struct winner {
 typedef struct winner winner;
 
 winner* readWinner(int nbGagnants){
-	winner *output = malloc(sizeof(winner) * nbGagnants);
+	winner *winnerTuring = malloc(sizeof(winner) * nbGagnants);
 	for (int i = 0; i < nbGagnants; i++) {
-		output[i].Year = scanLineAsInt();
-		output[i].Name = scanLine();
-		output[i].Description = scanLine();
+		winnerTuring[i].Year = scanLineAsInt();
+		winnerTuring[i].Name = scanLine();
+		winnerTuring[i].Description = scanLine();
 	}
-	return output;
+	return winnerTuring;
 
 }
 
-void printWinner(int nbGagnants,winner*output){
+void effacer(int nbGagnants,winner*winnerTuring){
 	//winner ** output = readWinner(nbGagnants);
 	//FILE*f;
 	//f =fopen(out,"w");
 	for(int i= 0; i<nbGagnants; i++){
 		//int putc(output[i],FILE*f);
-		printf("%i\n",output[i].Year );
-		printf("%s\n",output[i].Name );
-		printf("%s\n",output[i].Description );
+		free(winnerTuring[i].Year );
+		free(winnerTuring[i].Name );
+		free(winnerTuring[i].Description );
 	}
 }
 	
 void infosAnnee (int annee,int nbGagnants){
-	winner * output = readWinner(nbGagnants);
+	winner * winnerTuring = readWinner(nbGagnants);
 	for(int i= 0; i<50; i++){
-		if (output[i].Year == annee){
-			printf("%i\n",output[i].Year );
-			printf("%s\n",output[i].Name );
-			printf("%s\n",output[i].Description );
+		if (winnerTuring[i].Year == annee){
+			printf("%i\n",winnerTuring[i].Year );
+			printf("%s\n",winnerTuring[i].Name );
+			printf("%s\n",winnerTuring[i].Description );
 		}
 
 }
 }
 
+void printWinner(int nbGagnants,winner*winnerTuring){
+	//winner ** output = readWinner(nbGagnants);
+	//FILE*f;
+	//f =fopen(out,"w");
+	for(int i= 0; i<nbGagnants; i++){
+		//int putc(output[i],FILE*f);
+		printf("%i\n",winnerTuring[i].Year );
+		printf("%s\n",winnerTuring[i].Name );
+		printf("%s\n",winnerTuring[i].Description );
+	}
+}
+	
+
 int main(void)
 {
 	 int nbGagnants = scanLineAsInt();
 	 printf("%i\n",nbGagnants);
-	 winner* output =readWinner(nbGagnants);
-	 printWinner(nbGagnants,output);
+	 winner* winnerTuring =readWinner(nbGagnants);
+	 printWinner(nbGagnants,winnerTuring);
+	 
 	//infosAnnee(2003,nbGagnants);
 	// for (int i =0 ; i<= (50);i++){
 	// 	int winnerYear =scanLineAsInt();
