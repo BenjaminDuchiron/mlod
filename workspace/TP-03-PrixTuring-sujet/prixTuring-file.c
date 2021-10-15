@@ -66,17 +66,17 @@ typedef struct winner winner;
 
 }
 
-winner** readWinner(){
+winner* readWinner(int nbGagnant){
 	char turingWinners[]="turingWinners.txt";
 	FILE* f;
 	winner **output = malloc(sizeof(winner* ) * 50);
 	f = fopen (turingWinners,"r");
 	for (int i = 0; i < 50; i++) {
-		output[i] = malloc(sizeof(winner));
 		
-		output[i]->Year =readLine(f);
-		output[i]->Name =readLine(f);
-		output[i]->Description =readLine(f);
+		
+		output[i].Year =readLine(f);
+		output[i].Name =readLine(f);
+		output[i].Description =readLine(f);
 	}
 	return output;
 
