@@ -77,5 +77,5 @@ int main(void){
    
     printf (nombredematrice, tableaudematrice)
 
-    return 0;
+    return 0; 
 } 
