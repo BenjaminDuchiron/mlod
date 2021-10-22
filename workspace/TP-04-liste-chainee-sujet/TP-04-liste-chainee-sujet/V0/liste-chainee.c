@@ -165,7 +165,7 @@ Liste cherche_r(Element v,Liste l) {
 Liste retirePremier_r(Element v, Liste l) {
 	Liste p=l;
 	Liste a;
-	a=chercher_r(v,p);
+	a=cherche_r(v,p);
 	detruireElement(a->val);
 	return l;
 }
