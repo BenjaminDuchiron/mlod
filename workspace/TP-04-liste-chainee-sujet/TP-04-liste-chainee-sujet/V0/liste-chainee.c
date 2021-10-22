@@ -167,6 +167,7 @@ Liste retirePremier_r(Element v, Liste l) {
 	Liste a;
 	a=cherche_r(v,p);
 	detruireElement(a->val);
+	detruireElement(*a)
 	return l;
 }
 
