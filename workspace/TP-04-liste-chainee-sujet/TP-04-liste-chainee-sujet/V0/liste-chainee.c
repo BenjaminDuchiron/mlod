@@ -118,6 +118,7 @@ bool equalsElement(Element e1, Element e2){
 // Retourne un pointeur sur l'élément de la liste l contenant la valeur v ou NULL
 // version itérative
 Liste cherche_i(Element v,Liste l) {
+
 	Liste p =l;
 	Liste vide = NULL;
 	while (!equalsElement(p->val , v)){
@@ -134,10 +135,10 @@ Liste cherche_i(Element v,Liste l) {
 // version récursive
 Liste cherche_r(Element v,Liste l) {
 	Liste p =l;
-	Liste vide =NULL
-	if(!equalsElement(p->val , v) &&  !equalsElement (p->val ,NULL) ){
+	Liste vide =NULL;
+	if(!equalsElement(p->val , v) &&  !equalsElement (p->suiv ,NULL) ){
 		p=p->suiv;
-		return (cherche_r(v,l));
+		return (cherche_r(v,p));
 	
 	}
 	if(equalsElement (p->val ,NULL)){
@@ -151,14 +152,22 @@ Liste cherche_r(Element v,Liste l) {
 // Retourne la liste modifiée dans la laquelle le premier élément ayant la valeur v a été supprimé
 // ne fait rien si aucun élément possède cette valeur
 // version itérative
-Liste retirePremier_i(Element v, Liste l) {
-	return TODO;
-}
+// Liste retirePremier_i(Element v, Liste l) {
+// 	Liste p =l;
+// 	Liste a;
+// 	a=cherche_i(v,p);
+// 	detruireElement(a);
+// 	return l;
+// }
 
 
 // version recursive
 Liste retirePremier_r(Element v, Liste l) {
-	return TODO;
+	Liste p=l;
+	Liste a;
+	a=chercher_r(v,p);
+	detruireElement(a->val);
+	return l;
 }
 
 
