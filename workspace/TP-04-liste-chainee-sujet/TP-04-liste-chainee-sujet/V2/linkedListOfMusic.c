@@ -7,7 +7,7 @@
 
 #include <string.h>
 
- 
+ // Trie non testé car fin de codage dans le train 
  Liste Trie (Liste list_head){
 		Liste head = list_head; 
 		Music *tmp; 
