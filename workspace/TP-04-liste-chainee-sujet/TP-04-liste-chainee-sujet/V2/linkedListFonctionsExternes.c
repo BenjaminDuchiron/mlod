@@ -5,13 +5,25 @@
 
 void afficheElement(Element e) {
 	Music m = *((Music*) e);
-	printf("%s ",m.Name);
-	printf("%s ",m.Artist);
-	printf("%s ",m.Album);
-	printf("%s ",m.Genre);
-	printf("%i ",m.Disc_number);
-	printf("%i ",m.Track_number);
-	printf("%i ",m.Year);
+	printf("%s%s",m.Name,",");
+	printf("%s%s",m.Artist,",");
+	printf("%s%s",m.Album,",");
+	printf("%s%s",m.Genre,",");
+	if (m.Disc_number!=-1){
+	printf("%i%s",m.Disc_number,",");
+	}
+	else{
+		printf("%s",",");
+	}
+	if (m.Track_number!=-1){
+	printf("%i%s",m.Track_number,",");
+	}
+	else{
+		printf("%s",",");
+	}
+	if (m.Year!=-1){
+	printf("%i",m.Year);
+	}
 }
 
 

@@ -36,6 +36,7 @@ void afficheListe_i(Liste l) {
 	while(!estVide(p)) {
 		afficheElement(p->val);
 		p=p->suiv;
+		printf("\n");
 	}
 	printf("\n");
 }
@@ -45,6 +46,7 @@ void afficheListe_r(Liste l) {
 	if( !estVide(l) ) {
 		afficheElement(l->val);
 		afficheListe_r(l->suiv);
+		
 	}
 	else
 		printf("\n");

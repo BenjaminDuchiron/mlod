@@ -7,6 +7,25 @@
 
 #include <string.h>
 
+// code qui n'aime pas les doubles fleches ... 
+ Liste Trie (Liste listemusic){
+		Liste head = list_head; 
+		Liste cur;
+
+	while (list_head->next != NULL) {
+    	if (list_head->val <= list_head->next->val) {
+         list_head = list_head->next; 
+         continue;
+    	} 
+    	cur = retirePremier_r(list_head->next, list_head); /// a modifier 
+    	inserer_noeud(cur, list_head);
+    	list_head = head; 
+	} 
+		return L
+				}
+
+		
+
 Liste readMusic(){
 	
 	FILE* f =fopen ("music.csv","r");
@@ -16,7 +35,8 @@ Liste readMusic(){
 	
 	char intermediaire[255];
 	char* dup ;
-	printf("\n",dup);
+	
+	fgets(intermediaire,255,f);
 	while (fgets(intermediaire,255,f)!=NULL){
 	 	dup=strdup(intermediaire);
 	 	Music *musicSpitofy = malloc(sizeof(Music));
@@ -26,9 +46,12 @@ Liste readMusic(){
 	 	musicSpitofy->Artist= strsep(&dup,",");
 	 	musicSpitofy->Album= strsep(&dup,",");
 	 	musicSpitofy->Genre= strsep(&dup,",");
-	 	musicSpitofy->Disc_number= atoi(strsep(&dup,","));
-	 	musicSpitofy->Track_number= atoi(strsep(&dup,","));
-	 	musicSpitofy->Year= atoi(strsep(&dup,","));
+	 	musicSpitofy->Disc_number= getNumber(strsep(&dup,","));
+		musicSpitofy->Track_number= getNumber(strsep(&dup,","));
+		musicSpitofy->Year= getNumber(strsep(&dup,","));
+	 	
+	 	
+
 	 	free (dup);
 
 		listeMusic = ajoutFin_r((musicSpitofy),listeMusic);
@@ -39,7 +62,14 @@ Liste readMusic(){
 
 }
 
-
+int getNumber(char *chunk){
+	if (strlen(chunk)!=0){
+		return atoi (chunk);
+	}
+	else{
+		return -1;
+	}
+}
 
 int scanLineAsInt() {
 	int buf;

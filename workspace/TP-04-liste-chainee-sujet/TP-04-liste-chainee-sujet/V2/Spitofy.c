@@ -29,8 +29,8 @@
 int main(void){
 	
 	Liste a =readMusic();
-	
-	afficheListe_r(a);
+	printf("%s\n","Name,Artist,Album,Genre,Disc Number,Track Number,Year");
+	afficheListe_i(a);
 	
 	return EXIT_SUCCESS;
 }
