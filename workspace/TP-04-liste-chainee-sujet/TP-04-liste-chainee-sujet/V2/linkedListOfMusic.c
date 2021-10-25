@@ -22,7 +22,7 @@
     	list_head->next->val = tmp;
     	list_head = head; 
 	}
-		return L
+		return list_head
 				}
 
 		
