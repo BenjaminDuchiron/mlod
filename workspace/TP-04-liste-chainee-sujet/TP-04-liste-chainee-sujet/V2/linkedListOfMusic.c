@@ -10,17 +10,18 @@
 // code qui n'aime pas les doubles fleches ... 
  Liste Trie (Liste listemusic){
 		Liste head = list_head; 
-		Liste cur;
+		Music *tmp; 
 
 	while (list_head->next != NULL) {
-    	if (list_head->val <= list_head->next->val) {
+    	if (list_head->val->Year <= list_head->next->val->Year) {
          list_head = list_head->next; 
          continue;
     	} 
-    	cur = retirePremier_r(list_head->next, list_head); /// a modifier 
-    	inserer_noeud(cur, list_head);
+    	tmp = list_head->val;
+    	list_head->val = list_head->next->val;
+    	list_head->next->val = tmp;
     	list_head = head; 
-	} 
+	}
 		return L
 				}
 
