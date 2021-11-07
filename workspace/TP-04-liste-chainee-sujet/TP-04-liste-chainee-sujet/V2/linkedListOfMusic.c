@@ -7,8 +7,8 @@
 
 #include <string.h>
 
-// code qui n'aime pas les doubles fleches ... 
- Liste Trie (Liste listemusic){
+ // Trie non testé car fin de codage dans le train 
+ Liste Trie (Liste list_head){
 		Liste head = list_head; 
 		Music *tmp; 
 
@@ -22,7 +22,7 @@
     	list_head->next->val = tmp;
     	list_head = head; 
 	}
-		return L
+		return list_head
 				}
 
 		
