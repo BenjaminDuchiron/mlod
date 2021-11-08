@@ -298,7 +298,7 @@ ArbreBinaire supprimer_r(ArbreBinaire a,Element x)
 		}
 		if(estVide(Asupprimer->filsGauche)&&estVide(Asupprimer->filsDroit)) {
 			free(Asupprimer);
-			return a;
+			return NULL;
 		}
 		if (estVide(Asupprimer->filsGauche)) {
 			ArbreBinaire b = Asupprimer->filsDroit;
