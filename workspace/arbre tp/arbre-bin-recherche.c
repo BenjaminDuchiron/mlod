@@ -324,7 +324,7 @@ ArbreBinaire supprimer_r(ArbreBinaire a,Element x)
 			newarbre->filsDroit=newDroit;
 			free(Asupprimer);
 			
-			return a;
+			return newarbre;
 
 		}
 }
