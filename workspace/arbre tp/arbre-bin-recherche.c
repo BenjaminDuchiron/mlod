@@ -255,7 +255,7 @@ ArbreBinaire max(ArbreBinaire a){
 	while (!estVide(a->filsDroit)){
 		a=a->filsDroit;
 	}
-	return NULL;
+	return a;
 }
 
 
@@ -267,7 +267,7 @@ ArbreBinaire recherche_r(ArbreBinaire a, Element elem){
 	}
 
 	if ( (elem==(a->val))){
-		afficheGRD_r(a);
+		
 		return a;
 	}
 	else{
@@ -283,42 +283,57 @@ ArbreBinaire recherche_r(ArbreBinaire a, Element elem){
 
 // suppime x de a
 ArbreBinaire supprimer_r(ArbreBinaire a,Element x)
-{	ArbreBinaire Asupprimer= recherche_r(a,x);
-	if (Asupprimer==NULL){
-		return a;
-	}
-	if(estVide(Asupprimer->filsGauche)&&estVide(Asupprimer->filsDroit)) {
-		free(Asupprimer);
-		return a;
-	}
-	if (estVide(Asupprimer->filsGauche)) {
-		ArbreBinaire b = Asupprimer->filsDroit;
-		free(Asupprimer);
-		return b;
-	}		
-	if (estVide(Asupprimer->filsDroit)) {
-		ArbreBinaire b = Asupprimer->filsGauche;
-		free(Asupprimer);
-		return b;	
-	}
+{	if (!estVide(a)){
+		if ( x < a->val ) {
+				a->filsGauche = supprimer_r( a->filsGauche, x);
+				return a;
+			}
+		if ( x > a->val ) {
+			a->filsDroit = supprimer_r( a->filsDroit, x);
+			return a;
+		}
+		ArbreBinaire Asupprimer=a;
+		if (Asupprimer==NULL){
+			return a;
+		}
+		if(estVide(Asupprimer->filsGauche)&&estVide(Asupprimer->filsDroit)) {
+			free(Asupprimer);
+			return a;
+		}
+		if (estVide(Asupprimer->filsGauche)) {
+			ArbreBinaire b = Asupprimer->filsDroit;
+			
+			free(Asupprimer);
+			
+			return a;
+		}		
+		if (estVide(Asupprimer->filsDroit)) {
+			ArbreBinaire b = Asupprimer->filsGauche;
+			
+			free(Asupprimer);
+			return a;	
+		}
 
-	if (!estVide(Asupprimer->filsGauche)&&!estVide(Asupprimer->filsDroit)){
-		ArbreBinaire newDroit = Asupprimer->filsDroit;
-		ArbreBinaire newGauche = Asupprimer->filsGauche;
-		ArbreBinaire b=max(Asupprimer->filsGauche);
-		ArbreBinaire newarbre = creer(b->val);
-		free(Asupprimer);
-		newarbre->filsGauche=supprimer_r(newGauche,b->val);
-		newarbre->filsDroit=newDroit;
-		return newarbre;
+		if (!estVide(Asupprimer->filsGauche)&&!estVide(Asupprimer->filsDroit)){
+			ArbreBinaire newDroit = Asupprimer->filsDroit;
+			ArbreBinaire newGauche = Asupprimer->filsGauche;
+			ArbreBinaire b=max(newGauche);
+			ArbreBinaire newarbre = creer(b->val);
+			
+			newarbre->filsGauche=supprimer_r(newGauche,b->val);
+			newarbre->filsDroit=newDroit;
+			free(Asupprimer);
+			
+			return a;
 
-	}
-
-
-	
-	
-
+		}
 }
+
+
+	
+	
+
+ }
 
 void detruire_r(ArbreBinaire b){
 	
